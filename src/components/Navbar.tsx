@@ -67,6 +67,10 @@ const Navbar = () => {
                       <div className="font-medium">Swahili Tech Women</div>
                       <div className="text-sm text-gray-600">Women in technology initiative</div>
                     </Link>
+                    <Link to="/programs/youth-engagement" className="block p-3 space-y-1 rounded-md hover:bg-gray-100">
+                      <div className="font-medium">Youth and Community Engagement</div>
+                      <div className="text-sm text-gray-600">Swahilipot Hub Youth Initiative</div>
+                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>

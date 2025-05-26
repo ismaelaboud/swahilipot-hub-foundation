@@ -20,6 +20,7 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
+import YouthEngagement from "./pages/Youth-Engagement";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/programs/campus-ambassador" element={<CampusAmbassador />} />
           <Route path="/programs/swahili-tech-women" element={<SwahiliTechWomen />} />
+          <Route path="/programs/youth-engagement" element={<YouthEngagement />} />
           
           {/* Department routes */}
           <Route path="/department/communication" element={<Communication />} />
