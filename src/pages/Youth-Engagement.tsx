@@ -195,7 +195,7 @@ const YouthEngagement = () => {
     </>
   );
 };
-// Use the same section and container style as "Key Programs and Initiatives"
+
 interface Story {
   name: string;
   title: string;
@@ -249,17 +249,58 @@ const stories: Story[] = [
 
 const SuccessStories: React.FC = () => {
   return (
-    <section className="success-stories py-16 md:py-24">
-      <div className="container-custom max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">Success Stories: Voices from the Community</h2>
-        <div className="space-y-8">
+    <section className="success-stories py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
+      <div className="container-custom">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold mb-4">Success Stories: Voices from the Community</h2>
+          <p className="text-gray-700">
+            Real stories from individuals whose lives have been transformed through our youth engagement programs.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stories.map((story, index) => (
-            <div className="story bg-white rounded-lg shadow p-6" key={index}>
-              <h3 className="text-xl font-semibold mb-1">{story.name} – {story.title}</h3>
-              <p className="meta text-gray-500 mb-2">Age: {story.age} | {story.location}</p>
-              <p className="italic text-gray-700">"{story.quote}"</p>
-            </div>
+            <Card 
+              key={index} 
+              className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col"
+            >
+              <CardHeader className="pb-2">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-swahilipot-100 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={`https://ui-avatars.com/api/?name=${story.name}&background=0D8ABC&color=fff`} 
+                      alt={story.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">{story.name}</CardTitle>
+                    <CardDescription className="text-swahilipot-600 font-medium">
+                      {story.title}
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <div className="relative pt-2">
+                  <div className="absolute top-0 left-0 text-5xl leading-none text-swahilipot-200">"</div>
+                  <p className="relative z-10 italic text-gray-700 pl-6 pr-2">
+                    {story.quote}
+                  </p>
+                  <div className="absolute bottom-0 right-0 text-5xl leading-none text-swahilipot-200">"</div>
+                </div>
+              </CardContent>
+              <div className="px-6 pb-5 text-sm text-gray-500">
+                {story.age} years old | {story.location}
+              </div>
+            </Card>
           ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <button className="px-6 py-3 bg-swahilipot-600 hover:bg-swahilipot-700 text-white font-medium rounded-lg transition-colors duration-300">
+            Share Your Story
+          </button>
         </div>
       </div>
     </section>
