@@ -73,8 +73,8 @@ const YouthEngagement = () => {
               <div className="relative">
                 <div className="aspect-video bg-swahilipot-100 rounded-lg overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80"
-                    alt="Campus ambassador presenting"
+                    src="https://plus.unsplash.com/premium_photo-1704756438032-6650a8d6749c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8eW91dGglMjBlbmdhZ2VtZW50JTIwYmxhY2slMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D"
+                    alt="Youth Engagement presents"
                     className="w-full h-full object-cover"
                   />
                 </div>
