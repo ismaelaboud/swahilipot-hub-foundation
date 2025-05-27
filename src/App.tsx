@@ -19,9 +19,8 @@ import SwahiliTechWomen from "./pages/SwahiliTechWomen";
 import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
-import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 import YouthEngagement from "./pages/Youth-Engagement";
-
+import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
 const queryClient = new QueryClient();
 
 const App = () => (

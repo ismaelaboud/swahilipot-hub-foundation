@@ -186,10 +186,83 @@ const YouthEngagement = () => {
             </div>
           </div>
         </section>
+        
+        {/* Success Stories Section */}
+        <SuccessStories />
       </main>
 
       <Footer />
     </>
+  );
+};
+// Use the same section and container style as "Key Programs and Initiatives"
+interface Story {
+  name: string;
+  title: string;
+  age: number;
+  location: string;
+  quote: string;
+}
+
+const stories: Story[] = [
+  {
+    name: "Amina",
+    title: "Digital Skills Graduate",
+    age: 23,
+    location: "Mombasa",
+    quote:
+      "Before joining Swahili Port Hub, I was unemployed and unsure of my future. The Digital Skills Bootcamp gave me confidence, job-readiness, and a community. I now work as a remote content manager and train other young women in digital literacy.",
+  },
+  {
+    name: "Joseph",
+    title: "Youth Mentor & Peer Leader",
+    age: 26,
+    location: "Likoni",
+    quote:
+      "I joined as a participant and left as a mentor. Through the leadership training program, I discovered my potential. Today, I run a youth group that supports over 50 young people in community clean-up and civic education projects.",
+  },
+  {
+    name: "Fatma",
+    title: "Entrepreneurship Program Alumna",
+    age: 21,
+    location: "Old Town",
+    quote:
+      "Thanks to Swahili Port Hub, I turned my small baking hobby into a real business. The training on business planning and marketing helped me open a kiosk and grow my customer base. I now mentor young girls who want to start businesses.",
+  },
+  {
+    name: "Suleiman",
+    title: "Creative Arts Program Participant",
+    age: 19,
+    location: "Kisauni",
+    quote:
+      "I used to feel invisible. Through the arts program, I found a voice through poetry and performance. I’ve performed at two local festivals and I'm now working on a documentary about youth in Mombasa.",
+  },
+  {
+    name: "Zuwena",
+    title: "Parent & Community Advocate",
+    age: 35,
+    location: "Tudor",
+    quote:
+      "My son was part of the coding club, and the change in him is unbelievable. He’s now confident, curious, and dreams of becoming a software engineer. As a parent, I’ve also learned how to support and guide him better.",
+  },
+];
+
+const SuccessStories: React.FC = () => {
+  return (
+    <section className="success-stories py-16 md:py-24">
+      <div className="container-custom max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center">Success Stories: Voices from the Community</h2>
+        <div className="space-y-8">
+          {stories.map((story, index) => (
+            <div className="story bg-white rounded-lg shadow p-6" key={index}>
+              <h3 className="text-xl font-semibold mb-1">{story.name} – {story.title}</h3>
+              <p className="meta text-gray-500 mb-2">Age: {story.age} | {story.location}</p>
+              <p className="italic text-gray-700">"{story.quote}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
