@@ -195,6 +195,13 @@ const Navbar = () => {
                 >
                   Swahili Tech Women
                 </Link>
+                <Link 
+                  to="/youth-engagement"
+                  className="block text-sm text-gray-600 hover:text-swahilipot-600 py-1"
+                  onClick={toggleMenu}
+                >
+                  Youth and Community Engagement
+                </Link>
               </div>
             </div>
             

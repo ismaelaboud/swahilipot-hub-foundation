@@ -3,15 +3,32 @@ import Footer from "@/components/Footer";
 import { GraduationCap, Award, Target, Users, Megaphone, Handshake, Book, Lightbulb, Link } from "lucide-react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const YouthEngagement = () => {
+  const [isStoryModalOpen, setIsStoryModalOpen] = useState(false);
+  
   return (
     <>
       <Navbar />
       <main>
         {/* Youth and Community Engagement Program */}
-        <section className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gray-50">
-          <div className="container-custom">
+        <section className="pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+          {/* Background Image with overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/youth-engagement-bg.jpg" 
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/80"></div>
+          </div>
+          
+          <div className="container-custom relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Youth and
@@ -36,7 +53,9 @@ const YouthEngagement = () => {
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Core Objectives</h2>
+                <h2 className="text-3xl font-bold mb-6">
+                  Core <span className="text-gradient-blue">Objectives</span>
+                </h2>
                 <p className="text-gray-700 mb-6">
                   The Youth Engagement Program connects Swahilipot Hub with universities across the coastal
                   region through student representatives who promote our initiatives, organize campus events,
@@ -85,11 +104,12 @@ const YouthEngagement = () => {
         </section>
 
         {/* Key Programs and Initiatives */}
-
         <section className="py-16 md:py-24">
           <div className="container-custom">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-3xl font-bold mb-4">Key Programs and Initiatives</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Key Programs and <span className="text-gradient-blue">Initiatives</span>
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -143,7 +163,9 @@ const YouthEngagement = () => {
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="container-custom">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-3xl font-bold mb-4">Impact and Future Directions</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Impact and <span className="text-gradient-blue">Future Directions</span>
+              </h2>
               <p className="text-gray-700">
                 The Swahilipot Hub Youth and Community Engagement Department continues to play a pivotal role in youth development by:
               </p>
@@ -188,7 +210,104 @@ const YouthEngagement = () => {
         </section>
         
         {/* Success Stories Section */}
-        <SuccessStories />
+        <SuccessStories openStoryModal={() => setIsStoryModalOpen(true)} />
+        
+        {/* Get Involved Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container-custom">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold mb-4">
+                Join Our <span className="text-gradient-blue">Program</span>
+              </h2>
+              <p className="text-gray-700">
+                Ready to be part of the Youth and Community Engagement Program? There are multiple ways to get involved and make an impact.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="border-2 border-swahilipot-100 hover:border-swahilipot-300 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle>Join an Initiative</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-4">Participate in our YAG, YHN, or any of our specific initiatives designed to develop your skills and expand your network.</p>
+                  <Button className="w-full">Browse Initiatives</Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-2 border-swahilipot-100 hover:border-swahilipot-300 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle>Become a Youth Advocate</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-4">Represent your community, school or university by becoming an advocate for Swahilipot Hub's youth initiatives.</p>
+                  <Button className="w-full">Apply Now</Button>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-2 border-swahilipot-100 hover:border-swahilipot-300 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle>Partner With Us</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-4">Organizations and individuals can collaborate with us through partnerships, sponsorships, or donations.</p>
+                  <Button className="w-full">Contact Us</Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        
+        {/* Story Submission Modal */}
+        <Dialog open={isStoryModalOpen} onOpenChange={setIsStoryModalOpen}>
+          <DialogContent className="sm:max-w-[525px]">
+            <DialogHeader>
+              <DialogTitle>Share Your Story</DialogTitle>
+              <DialogDescription>
+                Tell us how Swahilipot Hub has impacted your life. Your story could inspire others to join our community.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <label htmlFor="name">Name</label>
+                  <Input id="name" placeholder="Your name" />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <label htmlFor="age">Age</label>
+                  <Input id="age" placeholder="Your age" type="number" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <label htmlFor="location">Location</label>
+                  <Input id="location" placeholder="Where you're from" />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <label htmlFor="title">Title/Role</label>
+                  <Input id="title" placeholder="Your title or role" />
+                </div>
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <label htmlFor="story">Your Story</label>
+                <Textarea 
+                  id="story" 
+                  placeholder="Share how Swahilipot Hub has impacted your life..."
+                  className="min-h-[120px]"
+                />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <label htmlFor="email">Email Address</label>
+                <Input id="email" placeholder="your.email@example.com" type="email" />
+                <p className="text-xs text-gray-500 mt-1">We'll contact you if we select your story to feature.</p>
+              </div>
+            </div>
+            <div className="flex justify-end gap-3">
+              <Button variant="outline" onClick={() => setIsStoryModalOpen(false)}>Cancel</Button>
+              <Button type="submit">Submit Story</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
       </main>
 
       <Footer />
@@ -247,12 +366,18 @@ const stories: Story[] = [
   },
 ];
 
-const SuccessStories: React.FC = () => {
+interface SuccessStoriesProps {
+  openStoryModal: () => void;
+}
+
+const SuccessStories: React.FC<SuccessStoriesProps> = ({ openStoryModal }) => {
   return (
     <section className="success-stories py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold mb-4">Success Stories: Voices from the Community</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Success Stories: <span className="text-gradient-blue">Voices from the Community</span>
+          </h2>
           <p className="text-gray-700">
             Real stories from individuals whose lives have been transformed through our youth engagement programs.
           </p>
@@ -298,9 +423,12 @@ const SuccessStories: React.FC = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <button className="px-6 py-3 bg-swahilipot-600 hover:bg-swahilipot-700 text-white font-medium rounded-lg transition-colors duration-300">
+          <Button 
+            onClick={openStoryModal}
+            className="px-6 py-3 bg-swahilipot-600 hover:bg-swahilipot-700 text-white font-medium rounded-lg transition-colors duration-300"
+          >
             Share Your Story
-          </button>
+          </Button>
         </div>
       </div>
     </section>
