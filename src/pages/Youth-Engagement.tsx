@@ -17,17 +17,7 @@ const YouthEngagement = () => {
       <Navbar />
       <main>
         {/* Youth and Community Engagement Program */}
-        <section className="pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
-          {/* Background Image with overlay */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/images/youth-engagement-bg.jpg" 
-              alt=""
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/80"></div>
-          </div>
-          
+        <section className="pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">      
           <div className="container-custom relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
