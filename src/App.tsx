@@ -20,9 +20,13 @@ import Communication from "./pages/Communication";
 import TechEngineering from "./pages/TechEngineering";
 import Creatives from "./pages/Creatives";
 import CommunityEntrepreneurship from "./pages/CommunityEntrepreneurship";
+
+import Policy from "./pages/Privacy";
+
 import EmployerEngagement from "./pages/EmployerEngagement";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
+
 
 const queryClient = new QueryClient();
 
@@ -39,6 +43,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/impact" element={<Impact />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/privacy" element={<Policy/>} />
           
           {/* Program-specific routes */}
           <Route path="/programs/case-management" element={<CaseManagement />} />
